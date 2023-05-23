@@ -1,0 +1,11 @@
+@import "../node_modules/@angular/material/theming";
+@include mat-core();
+// the code below are from youtube tutorial
+
+$my-primary: mat-palette($mat-teal, 500);
+$my-accent: mat-palette($mat-red, 500);
+$my-warn: mat-palette($mat-red, 400);
+
+$my-theme: mat-light-theme($my-primary, $my-accent, $my-warn);
+
+@include angular-material-theme($my-theme);

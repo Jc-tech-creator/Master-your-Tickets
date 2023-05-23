@@ -1,0 +1,130 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-7" style="margin: auto">
+      <div class="card">
+        <div class="card-body">
+          <h2
+            style="
+              text-align: center;
+              font-family: Georgia, serif;
+              margin-top: 5%;
+            "
+          >
+            Events Search
+          </h2>
+          <hr style="background-color: white" />
+          <form
+            [formGroup]="searchFormData"
+            (ngSubmit)="onSubmit()"
+            ngNativeValidate
+          >
+            <div class="form-group">
+              <label for="inputKeyword"
+                >Keyword<span class="required">*</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="inputKeyword"
+                name="inputKeyword"
+                required
+                [formControl]="myControl"
+                [matAutocomplete]="auto"
+              />
+              <mat-autocomplete
+                #auto="matAutocomplete"
+                [displayWith]="SelectFn"
+              >
+                <mat-option *ngIf="isLoading" class="is-loading"
+                  ><mat-spinner diameter="40"></mat-spinner
+                ></mat-option>
+                <ng-container *ngIf="!isLoading">
+                  <mat-option
+                    *ngFor="let attract of filteredAttra"
+                    [value]="attract"
+                  >
+                    <div>{{ attract.name }}</div>
+                  </mat-option>
+                </ng-container>
+              </mat-autocomplete>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputDistance">Distance</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="inputDistance"
+                  name="inputDistance"
+                  formControlName="inputDistance"
+                />
+              </div>
+              <div class="form-group col-md-4" style="width: 80%">
+                <label for="inputCategory"
+                  >Category<span class="required">*</span></label
+                >
+                <select
+                  id="inputCategory"
+                  class="form-control"
+                  name="inputCategory"
+                  formControlName="inputCategory"
+                >
+                  <option value="Default" selected>Default</option>
+                  <option value="Music">Music</option>
+                  <option value="Sports">Sports</option>
+                  <option value="Arts & Theatre">Arts & Theatre</option>
+                  <option value="Film">Film</option>
+                  <option value="Miscellaneous">Miscellaneous</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputLocation"
+                >Location<span class="required">*</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="inputLocation"
+                formControlName="inputLocation"
+                name="inputLocation"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="gridCheck"
+                  name="gridCheck"
+                  formControlName="gridCheck"
+                  (change)="checkAuto()"
+                />
+                <label class="form-check-label" for="gridCheck">
+                  Auto-detect your location
+                </label>
+              </div>
+            </div>
+            <div
+              class="lastRow"
+              style="text-align: center; margin-bottom: 30px"
+            >
+              <button type="submit" class="btn btn-primary" id="submitButton">
+                SUBMIT
+              </button>
+              <button
+                type="button"
+                (click)="clear()"
+                class="btn btn-primary"
+                id="clearButton"
+              >
+                CLEAR
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

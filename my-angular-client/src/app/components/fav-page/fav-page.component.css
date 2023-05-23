@@ -1,0 +1,25 @@
+table {
+  text-align: center;
+  max-width: 70%;
+  margin-inline: auto;
+  border-radius: 15px;
+}
+.table-custom tr {
+  border-top: 2.02px solid rgba(0, 0, 0, 0.064);
+}
+
+.delete-button {
+  cursor: pointer;
+}
+.noResult {
+  text-align: center;
+  margin-top: 5%;
+  margin-inline: auto;
+  color: red;
+  font-weight: 500;
+  font-size: larger;
+  background-color: white;
+  max-width: 60%;
+  height: 30px;
+  border-radius: 15px;
+}

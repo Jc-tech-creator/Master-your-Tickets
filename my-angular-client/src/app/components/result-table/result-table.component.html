@@ -1,0 +1,67 @@
+<div *ngIf="searchResToTable === 'empty'" class="noResult">
+  No results available
+</div>
+<div
+  class="table-responsive"
+  style="margin-left: 10px; margin-right: 10px"
+  #scrollTarget
+>
+  <table
+    class="table table-striped table-dark"
+    style="margin-top: 100px"
+    *ngIf="
+      searchResToTable &&
+      searchResToTable !== 'empty' &&
+      clearResTable?.value === false
+    "
+  >
+    <thead>
+      <tr>
+        <th scope="col">Date/Time</th>
+        <th scope="col">Icon</th>
+        <th scope="col">Event</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Venue</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of dataSource()" (click)="onClickRow(data.id)">
+        <td>
+          <div>{{ data.dates.start.localDate || "" }}</div>
+          <div *ngIf="data.dates.start.localTime">
+            {{ data.dates.start.localTime }}
+          </div>
+        </td>
+        <td>
+          <img
+            [src]="data.images[0].url"
+            *ngIf="data.images && data.images.length > 0"
+          />
+        </td>
+        <td id="eventName">{{ data.name || "" }}</td>
+        <td>
+          <ng-container
+            *ngIf="
+              data.classifications &&
+              data.classifications[0]?.segment?.name &&
+              data.classifications[0].segment.name !== 'Undefined'
+            "
+          >
+            {{ data.classifications[0].segment.name }}
+          </ng-container>
+        </td>
+        <td id="venueName">
+          <ng-container
+            *ngIf="
+              data._embedded?.venues &&
+              data._embedded.venues.length > 0 &&
+              data._embedded.venues[0]
+            "
+          >
+            {{ data._embedded.venues[0].name }}
+          </ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

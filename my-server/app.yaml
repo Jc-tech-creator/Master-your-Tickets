@@ -1,0 +1,13 @@
+runtime: nodejs16
+# handlers:
+#   - url: /.*
+#     static_files: ../my-app/dist/my-app/index.html
+#     upload: ../my-app/dist/my-app/index.html
+#     secure: always
+#     redirect_http_response_code: 301
+
+#   - url: /.*
+#     static_dir: ../my-app/dist/my-app
+#     # script: auto
+#     # secure: always
+#     # redirect_http_response_code: 301

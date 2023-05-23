@@ -1,0 +1,31 @@
+button {
+  margin-inline: 10px;
+}
+label {
+  color: rgb(172, 197, 241);
+}
+label .required {
+  color: red;
+  margin-left: 5px;
+}
+.card {
+  background-color: rgba(255, 255, 255, 0.184);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  width: 100%;
+  min-height: 370px;
+  border-radius: 20px;
+  margin-inline: auto;
+  margin-top: 50px;
+  color: white;
+}
+#submitButton {
+  background-color: red;
+}
+#submitButton:hover {
+  background-color: rgb(182, 14, 14);
+}
+option {
+  background-color: black;
+  color: white;
+}

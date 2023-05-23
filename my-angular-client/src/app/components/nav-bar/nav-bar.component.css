@@ -1,0 +1,16 @@
+a {
+  color: white !important;
+}
+.nav-item {
+  text-align: right;
+}
+
+nav {
+  background: black;
+}
+
+.active {
+  border-radius: 11px;
+  border: 1.9px solid white;
+  border-color: white;
+}

@@ -1,0 +1,33 @@
+.noResult {
+  margin-top: 100px;
+  text-align: center;
+  margin-inline: auto;
+  color: red;
+  font-weight: 500;
+  font-size: larger;
+  background-color: white;
+  max-width: 60%;
+  height: 30px;
+  border-radius: 15px;
+}
+table {
+  text-align: center;
+  max-width: 70%;
+  margin-inline: auto;
+}
+th {
+  font-weight: 500;
+}
+td#eventName {
+  min-width: 115px;
+}
+td#venueName {
+  min-width: 110px;
+}
+div {
+  color: white;
+}
+img {
+  width: 70px;
+  height: 70px;
+}

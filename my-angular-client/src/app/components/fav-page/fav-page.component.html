@@ -1,0 +1,49 @@
+<!-- The table structure reference from bootstrap style -->
+<div *ngIf="!favData || favData.length === 0" class="noResult">
+  No favorite events to show
+</div>
+<div
+  class="table-responsive"
+  style="margin-inline-end: 5px; margin-inline-start: 5px"
+  *ngIf="favData && favData.length > 0"
+>
+  <h4
+    style="
+      color: rgb(146, 224, 200);
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 30px;
+    "
+  >
+    List of your favorite events
+  </h4>
+  <table class="table table-hover table-light table-custom">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Event</th>
+        <th scope="col">Category</th>
+        <th scope="col">Venue</th>
+        <th scope="col">Favorite</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="favData && favData.length > 0">
+      <tr *ngFor="let row of favData; let k = index">
+        <th scope="row">{{ k + 1 }}</th>
+        <td>{{ row.storeKalue.Date }}</td>
+        <td>{{ row.storeKalue.Event }}</td>
+        <td>{{ row.storeKalue.Category }}</td>
+        <td>{{ row.storeKalue.Venue }}</td>
+        <td>
+          <span
+            class="material-symbols-outlined delete-button"
+            (click)="onDelete(row.storeKey, k)"
+          >
+            delete
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

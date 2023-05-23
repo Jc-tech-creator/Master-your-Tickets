@@ -1,0 +1,19 @@
+<app-search-form
+  (resultForSearch)="onSearch($event)"
+  (clearDetailTable)="onClear($event)"
+  (clearTable)="onClearRes($event)"
+></app-search-form>
+<app-result-table
+  [clearResTable]="clearToResTable"
+  [searchResToTable]="searchRes"
+  (resultForEventDetail)="onClickTableRow($event)"
+  (resultForVenueDetail)="onClickTableRowVenue($event)"
+  (resultForSpotifyDetail)="onClickTableRowSpotify($event)"
+></app-result-table>
+<app-event-detail
+  [tableResToDetail]="detailRes"
+  [tableResToDetailVenue]="venueRes"
+  [tableResToDetailSpotify]="spotifyRes"
+  [clearFromForm]="clearDetail"
+  (retainTable)="onRetainTable($event)"
+></app-event-detail>
